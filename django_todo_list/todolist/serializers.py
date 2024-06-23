@@ -4,4 +4,4 @@ from todolist.models import dailyTasks
 class dailyTasksSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = dailyTasks
-        fields=['dailyTaskID', 'dailyTask_name', 'dailyTimeHr', 'dailyTimeMin', 'dailyTaskStatus']
+        fields=['dailyTaskID', 'dailyTask_name', 'dailyStartTime', 'dailyEndTime', 'dailyTaskPriority', 'dailyTaskStatus']

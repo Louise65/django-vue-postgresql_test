@@ -16,7 +16,7 @@ from .models import dailyTasks
 @csrf_exempt
 def dailyTasksAdd(request):
     if(request.method == 'GET'):
-        dailytasks = dailyTasks.objects.all().order_by('dailyTaskStatus','dailyTimeHr', 'dailyTimeMin').values()
+        dailytasks = dailyTasks.objects.all().order_by('dailyTaskStatus', 'dailyTaskPriority', 'dailyStartTime', 'dailyEndTime').values()
         serializer = dailyTasksSerializer(dailytasks, many=True)
         return JsonResponse(serializer.data,safe=False)
     elif(request.method == 'POST'):

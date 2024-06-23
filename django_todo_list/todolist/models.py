@@ -6,18 +6,13 @@ class dailyTasks(models.Model):
     
     dailyTaskID = models.AutoField(primary_key=True)
     dailyTask_name = models.TextField()
-    dailyTimeHr = models.IntegerField(
-        default=8,
+    dailyStartTime = models.TimeField(auto_now=False, auto_now_add=False)
+    dailyEndTime = models.TimeField(auto_now=False, auto_now_add=False)
+    dailyTaskPriority = models.IntegerField(
+        default=1,
         validators=[
-            MaxValueValidator(23),
-            MinValueValidator(0)
-        ]
-    )
-    dailyTimeMin = models.IntegerField(
-        default=0,
-        validators=[
-            MaxValueValidator(59),
-            MinValueValidator(0)
+            MaxValueValidator(3),
+            MinValueValidator(1)
         ]
     )
     dailyTaskStatus = models.BooleanField(default=False)
